@@ -71,7 +71,7 @@ class App extends Component {
     const style = {
       backgroundColor: 'white',
       font: 'inherit',
-      border: '1px solid black',
+      border: '1px solid blue',
       padding: '8px auto',
       cursor: 'pointer'
     }
@@ -94,11 +94,14 @@ class App extends Component {
     return (
       <div className="App">
 
-          <hr></hr>
-        <div>
-          <button style={style} onClick = {this.toggleUserHandler}>Click Me</button>
-          {users}
 
+        <div>
+
+          <label> Assignment 1 </label>
+          <hr/><br/>
+          <button style={style} onClick = {this.toggleUserHandler}>To see Users</button>
+          {users}
+          <hr/><br/>
         </div>
 
 

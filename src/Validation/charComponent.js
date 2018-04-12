@@ -1,11 +1,18 @@
 import React, { Component}  from 'react';
+import './charComponent.css';
 
 class charComponent extends Component {
+  constructor(props){
+    super(props);
+  }
   render() {
 
     return (
-      <div >
-        Welcome to Char component
+      <div className="charContainer">
+          <p onClick = {this.props.click}>
+              {this.props.inpuText}
+           </p>
+
 
       </div>
     );

@@ -10,13 +10,13 @@ class validateComponent extends Component {
     let input = this.props.inputText;
     let st = "Not Valid" ;
     if (this.props.textLength >= validTextLength){
-      st = input + " is valid";
+      st =  "Text long enough";
     } else {
-      st = input + " is not valid";
+      st = "Text too short";
     }
 
     return (<div>
-        Welcome to validate Component
+
         <br/>
         {st}
       </div>

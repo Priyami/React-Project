@@ -1,18 +1,8 @@
 .Userinput{
+  width: 60%;
+  margin: 16px auto;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 2px #eee;
+  padding: 20px;
   text-align: center;
-}
-.Ulabel {
-  color: pink;
-}
-.Utext {
-
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: none;
-    background-color: #3CBC8D;
-    color: white;
-}
-.Utext:focus {
-    background-color: lightblue;
 }
