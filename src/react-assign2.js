@@ -2,67 +2,68 @@ import React, {Component} from 'react';
 import './App.css';
 import Validate from './Validation/validateComponent';
 import CharComponent from './Validation/charComponent'
+import InputComponent from './Validation/inputField'
+
 
 class App extends Component {
   state = {
     inputText: '',
-    textLength: 0,
-    showUser : false
+    refreshCharComponent : false
   }
-  txtfieldChangeListener = (event) => {
-    console.log(event.target.value);
-    //let valuefromText = event.target.value;
-    this.setState({inputText: event.target.value, textLength: event.target.value.length});
+
+  handleTextChange = (event) => {
+    const updateValue = event.target.value;
+    this.setState({
+       textLength: updateValue.length,
+       inputText: updateValue,
+       refreshCharComponent: true
+    });
   }
-  toggleUserHandler = () => {
-    const doesShow = this.state.showUser;
-    this.setState({showUser : !doesShow});
 
-  }
-  deleteUserHandler = (charIndex) => {
-  //  const users = this.state.users.slice();
-      const newText = [...this.state.inputText];
-
-
-       newText.splice(charIndex, 1);
-
-
-      console.log(this.state.inputText);
-      console.log(newText);
-
+  removeTextHandler = (charIndex) => {
+     const pt = [...this.state.inputText];
+     pt.splice(charIndex, 1);
+     const newText = pt.join("");
+     this.setState({
+       inputText: newText,
+       textLength: newText.length
+     });
   }
 
   render() {
-    var newlist = null;
-    if (this.state.showUser){
-
-      newlist = (
-      <div>
-          {this.state.inputText.split('').map((char, index) => {
-          return <CharComponent
-                    click = {() => this.deleteUserHandler(index)}
-                    inpuText = {char}
-
-          ></CharComponent>
-          })}
-      </div>
-    );
+    var charComponents = null;
+    if (this.state.refreshCharComponent){
+      charComponents = (
+        <div>
+            {this.state.inputText.split('').map((char, index) => {
+            return <CharComponent key={index}
+               click = {() => this.removeTextHandler(index)}
+               character = {char}
+            />
+            })}
+        </div>
+      );
     }
 
     return (<div className="App">
       <div>
-        <label> Assignment 2 </label>
+        <label> Assignment : 2 </label>
         <hr/><br/>
-        <label> Enter Password : </label><input id="txtfield" type="text" onBlur={this.txtfieldChangeListener}></input>
-        <br/>
-
+        <label> Enter the word : </label>
+        <InputComponent
+           onBlurFunction={this.txtfieldChangeListener}
+           onChangeFunction={this.handleTextChange}
+           newText = {this.state.inputText}
+        />
+        <div>
+           <p>The text length is : {this.state.textLength}</p>
+           <Validate
+               textLength={this.state.textLength}
+            />
+        </div>
       </div>
       <div>
-        <Validate textLength={this.state.textLength} inputText={this.state.newAlpha}/>
-      </div>
-      <div>
-        <button onClick = {this.toggleUserHandler}>Characters</button>
-        {newlist}
+        {charComponents}
       </div>
     </div>);
   }
