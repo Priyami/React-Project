@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './css/App.css';
-import Radium, {StyleRoot} from 'radium';
+import classes from './css/App.css';
+import './css/App.scss';
+
 //import Person from './Person/Person';
 import Useroutput from './User/UserOutput';
 //import Userinput from './User/UserInput';
@@ -69,18 +70,11 @@ class App extends Component {
   }
 
   render() {
-    const style = {
-      backgroundColor: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px auto',
-      cursor: 'pointer',
 
-
-    }
 
 
     let users = null;
+    let btnClass = '';
     if(this.state.showUser){
       users = (
 <div>
@@ -95,22 +89,21 @@ class App extends Component {
 </div>
 
       );
+      btnClass = classes.Red;
     }
     return (
-      <StyleRoot>
-      <div className="App">
+      <div className={classes.App}>
         <div>
-          <label> Assignment 1 </label>
+          <h1 className={classes.bold}> Assignment 1 </h1>
           <hr/><br/>
-          <button  style = {style} onClick = {this.toggleUserHandler}>To see Users</button>
+          <button className= {btnClass} onClick = {this.toggleUserHandler}>To see Users</button>
           {users}
           <hr/><br/>
         </div>
       </div>
-    </StyleRoot>
     );
     //return React.createElement('div',{className:'App'},React.createElement('h1', null), 'React guide!!!');
   }
 }
 
-export default Radium(App);
+export default App;

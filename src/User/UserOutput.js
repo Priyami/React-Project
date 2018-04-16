@@ -1,10 +1,10 @@
 import React from 'react';
-import './Useroutput.css';
+import classes from './Useroutput.css';
 
 
 const useroutput = (props) => {
   return(
-    <div className="User">
+    <div className={classes.User}>
     <p onClick = {props.click}>Hi {props.name}!!!!
 
      </p>

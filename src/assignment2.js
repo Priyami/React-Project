@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import './css/App.css';
-import Radium, {StyleRoot} from 'radium';
+import classes from'./css/App.css';
 import Validate from './Assignment2/validateComponent';
 import CharComponent from './Assignment2/charComponent'
 import InputComponent from './Assignment2/inputField'
@@ -47,28 +46,28 @@ class App extends Component {
       );
 
     }
-    const classes = [];
+    const assignedClasses = [];
     if(this.state.inputText.length <= 5){
-      classes.push('red');
+      assignedClasses.push(classes.red);
     }
     else{
-      classes.push('green');
-      classes.push('bold');
+      assignedClasses.push(classes.green);
+      assignedClasses.push(classes.bold);
     }
 
     return (
-      <StyleRoot>
-        <div className="App">
+
+        <div className={classes.App}>
           <div>
             <label> Assignment : 2 </label>
             <hr/><br/>
-            <label className={classes.join(' ')}> Enter the word : </label>
+            <label className={assignedClasses.join(' ')}> Enter the word : </label>
             <InputComponent
                 onChangeFunction={this.handleTextChange}
                 newText = {this.state.inputText}
             />
         <div>
-            <p className={classes.join(' ')}>The text length is : {this.state.textLength}</p>
+            <p className={assignedClasses.join(' ')}>The text length is : {this.state.textLength}</p>
             <Validate
                 textLength={this.state.textLength}
             />
@@ -79,8 +78,8 @@ class App extends Component {
         </div>
         </div>
         </div>
-    </StyleRoot>
+
     );
   }
 }
-export default Radium(App);
+export default App;

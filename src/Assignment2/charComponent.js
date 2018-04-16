@@ -1,11 +1,9 @@
 import React, { Component}  from 'react';
-import './charComponent.css';
-import Radium from 'radium';
+import classes from './charComponent.css';
 
 class charComponent extends Component {
 
   render() {
-    let classes = ['red','bold'].join(' ');
   /*  const style = {
     '@media (min-width : 500px)': {
       width: '450px'
@@ -13,9 +11,9 @@ class charComponent extends Component {
   };*/
 
     return (
-      <div className="charContainer" 
+      <div className={classes.charContainer}
         onClick = {this.props.click}>
-          <p className={classes}>
+          <p className={classes.red}>
               {this.props.character}
           </p>
       </div>
@@ -23,4 +21,4 @@ class charComponent extends Component {
   }
 }
 
-export default Radium(charComponent);
+export default charComponent;
