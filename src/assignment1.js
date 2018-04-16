@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
+import './css/App.css';
+import Radium, {StyleRoot} from 'radium';
 //import Person from './Person/Person';
 import Useroutput from './User/UserOutput';
 //import Userinput from './User/UserInput';
@@ -73,8 +74,12 @@ class App extends Component {
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px auto',
-      cursor: 'pointer'
+      cursor: 'pointer',
+
+
     }
+
+
     let users = null;
     if(this.state.showUser){
       users = (
@@ -92,24 +97,20 @@ class App extends Component {
       );
     }
     return (
+      <StyleRoot>
       <div className="App">
-
-
         <div>
-
           <label> Assignment 1 </label>
           <hr/><br/>
-          <button style={style} onClick = {this.toggleUserHandler}>To see Users</button>
+          <button  style = {style} onClick = {this.toggleUserHandler}>To see Users</button>
           {users}
           <hr/><br/>
         </div>
-
-
-
       </div>
+    </StyleRoot>
     );
     //return React.createElement('div',{className:'App'},React.createElement('h1', null), 'React guide!!!');
   }
 }
 
-export default App;
+export default Radium(App);

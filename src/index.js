@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Reactassign1 from './react-assign1';
-import Reactassign2 from './react-assign2';
+import './css/index.css';
+import Assignment1 from './assignment1';
+import Assignment2 from './assignment2';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
   <div>
-  <Reactassign1/>
-  <Reactassign2/>
+  <Assignment1/>
+  <Assignment2/>
   </div>,  document.getElementById('root')
   );
 registerServiceWorker();
