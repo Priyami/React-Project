@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import classes from'./css/App.css';
-import Validate from './Assignment2/validateComponent';
-import CharComponent from './Assignment2/charComponent'
-import InputComponent from './Assignment2/inputField'
+import Validate from '../components/Charvalidate/validate';
+import CharComponent from '../components/Charvalidate/char';
+import InputComponent from '../components/Charvalidate/inputField';
 
 
 class App extends Component {

@@ -1,5 +1,5 @@
 import React, { Component}  from 'react';
-import classes from './charComponent.css';
+import classes from './char.css';
 
 class charComponent extends Component {
 
