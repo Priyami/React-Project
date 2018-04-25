@@ -14,9 +14,9 @@
 .bold{
   font-weight: bold;
 }
-@media (min-width:500px) {
+/*@media (min-width:500px) {
   .charContainer {
     width : 450px;
   }
 
-}
+}*/

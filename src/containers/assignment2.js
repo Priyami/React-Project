@@ -3,6 +3,7 @@ import classes from'./css/App.css';
 import Validate from '../components/Charvalidate/validate';
 import CharComponent from '../components/Charvalidate/char';
 import InputComponent from '../components/Charvalidate/inputField';
+import WithClass from '../hoc/WithClass';
 
 
 class App extends Component {
@@ -57,8 +58,8 @@ class App extends Component {
 
     return (
 
-        <div className={classes.App}>
-          <div>
+        <WithClass classes={classes.App}>
+
             <label> Assignment : 2 </label>
             <hr/><br/>
             <label className={assignedClasses.join(' ')}> Enter the word : </label>
@@ -66,18 +67,14 @@ class App extends Component {
                 onChangeFunction={this.handleTextChange}
                 newText = {this.state.inputText}
             />
-        <div>
+
             <p className={assignedClasses.join(' ')}>The text length is : {this.state.textLength}</p>
             <Validate
                 textLength={this.state.textLength}
             />
-        </div>
 
-        <div>
             {charComponents}
-        </div>
-        </div>
-        </div>
+        </WithClass>
 
     );
   }

@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './css/App.scss';
 import Cockpit from '../components/Cockpit/Cockpit';
+import Aux from '../hoc/Aux';
 
 //import Person from './Person/Person';
 import Users from '../components/Users/Users';
 //import Userinput from './User/UserInput';
-class App extends Component {
+class App extends PureComponent {
   constructor(props){
     super(props);
     console.log("[Assigment1.js] Inside Constructor", props);
@@ -24,10 +25,10 @@ class App extends Component {
   componentDidMount() {
     console.log('[Assignment1.js] Inside componentDidMount');
   }
-  shouldComponentUpdate(nextProps, nextState){
-    console.log('[UPDATE Assignment1.js] Inside shouldComponentUpdate()', nextProps, nextState);
-    return true;
-  }
+  // shouldComponentUpdate(nextProps, nextState){
+  //   console.log('[UPDATE Assignment1.js] Inside shouldComponentUpdate()', nextProps, nextState);
+  //   return nextState.users !== this.state.users || nextState.showUser !== this.state.showUser;
+  // }
   componentWillUpdate(nextProps, nextState){
     console.log('[UPDATE Assignment1.js] Inside componentWillUpdate()', nextProps, nextState);
   }
@@ -109,7 +110,7 @@ class App extends Component {
     }
     return (
 
-        <div>
+        <Aux>
           <button onClick = {() => {this.setState({showUser: true})}}>Show Users </button>
           <Cockpit
             AssignTitle = {this.props.title}
@@ -117,7 +118,7 @@ class App extends Component {
             clicked = {this.toggleUserHandler}/>
           {users}
           <hr/><br/>
-        </div>
+        </Aux>
 
     );
     //return React.createElement('div',{className:'App'},React.createElement('h1', null), 'React guide!!!');

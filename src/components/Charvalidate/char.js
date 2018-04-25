@@ -1,5 +1,5 @@
 import React, { Component}  from 'react';
-import classes from './char.css';
+import styles from './char.css';
 
 class charComponent extends Component {
 
@@ -11,9 +11,9 @@ class charComponent extends Component {
   };*/
 
     return (
-      <div className={classes.charContainer}
+      <div className={styles.charContainer}
         onClick = {this.props.click}>
-          <p className={classes.red}>
+          <p className={styles.red}>
               {this.props.character}
           </p>
       </div>
