@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import './css/App.scss';
 import Cockpit from '../components/Cockpit/Cockpit';
 import Aux from '../hoc/Aux';
+import wrapClass from '../hoc/wrapClass';
 
 //import Person from './Person/Person';
 import Users from '../components/Users/Users';
@@ -125,4 +126,4 @@ class App extends PureComponent {
   }
 }
 
-export default App;
+export default wrapClass(App, Cockpit.App);

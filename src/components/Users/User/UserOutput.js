@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import classes from './Useroutput.css';
-import WithClass from '../../../hoc/WithClass';
+import Aux from '../../../hoc/Aux';
+import wrapClass from '../../../hoc/wrapClass';
+
 
 class Useroutput extends Component {
   constructor(props){
@@ -16,7 +18,7 @@ class Useroutput extends Component {
   }
   render () {
     console.log('[Useroutput.js] Inside render');
-    return <WithClass classes={classes.User}>
+    return <Aux>
     <p onClick = {this.props.click}>Hi {this.props.name}!!!!</p>
     <p>Welcome To React-Guide
         Your Password : {this.props.password}</p>
@@ -25,8 +27,8 @@ class Useroutput extends Component {
     onChange={this.props.changed}
     value = {this.props.currentUname}></input>
 
-</WithClass>
+</Aux>
   }
 }
 
-export default Useroutput;
+export default wrapClass(Useroutput,classes.User);
